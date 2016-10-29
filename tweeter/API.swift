@@ -13,6 +13,7 @@ import Social
 typealias accountCompletion = (ACAccount?) -> ()
 typealias userCompletion = (User?) -> ()
 typealias tweetsCompletion = ([Tweet]?) -> ()
+typealias imageCompletion = ([UIImage?]) -> ()
 
 class API {
     
@@ -146,8 +147,22 @@ class API {
         }
     }
     
+    func getUserTweets(username: String, completion: @escaping tweetsCompletion) {
+        self.updateTimeline(url: "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=\(username)", completion: completion)
+        
+    }
     
-    
+    func getImage(urlString: String, completion: @escaping imageCompletion) {
+        
+        OperationQueue().addOperation {
+            guard let url = URL(string: urlString) else {return}
+            
+            do {
+                let data = try Data(contentsOf: url)
+                guard let image = UIImage(data: data) else {return}
+            }
+        }
+    }
 }
 
 
