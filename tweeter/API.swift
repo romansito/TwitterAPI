@@ -38,7 +38,6 @@ class API {
                     
                     completion(account)
                     return 
-                    
                 }
             } else {
                 print("UNSUCESSFUL: No Twitter account found on device.")
