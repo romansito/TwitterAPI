@@ -75,6 +75,7 @@ class API {
                         if let userJSON = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: Any] {
                             let user = User(json: userJSON)
                             completion(user)
+                            return
                         }
                     } catch {
                         print("Error: Can not Serialize Data")
@@ -86,17 +87,17 @@ class API {
                     print("\(response?.statusCode): Server Side Error")
                 default: print("Unrecognize Status Code")
                 }
-                
+                completion(nil)
             })
         }
         
     }
     
-    private func updateTimeline(completion: @escaping tweetsCompletion) {
+    private func updateTimeline(url : String, completion: @escaping tweetsCompletion) {
         
-        let url = URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")
+//        let url = URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")
         
-        if let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, url: url, parameters: nil) {
+        if let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, url: URL(string: url), parameters: nil) {
             
             request.account = self.account
             
@@ -104,6 +105,7 @@ class API {
                 if error != nil {
                     print("Error: Fetching Home Timeline")
                     completion(nil)
+                    return
                 }
                 
                 guard response != nil else {completion(nil); return }
@@ -111,8 +113,8 @@ class API {
                 
                 switch response!.statusCode {
                 case 200...299:
-                    JSONParser.tweetsFrom(data: data!, completion:  { (succcess, tweets)
-                            completion(nil)
+                    JSONParser.tweetsFrom(data: data!, completion:  { (succcess, tweets) in
+                            completion(tweets)
                     })
                 case 400...499:
                     print("\(response?.statusCode): Client Side Error")
@@ -133,16 +135,51 @@ class API {
     
     func getTweets(completion: @escaping tweetsCompletion) {
         if self.account != nil {
-            self.updateTimeline(completion: completion)
-        }
-        
-        self.logIn { (account) in
-            if account != nil {
-                API.share.account = account!
-                self.updateTimeline(completion: completion)
-            }
-            completion(nil)
+            self.updateTimeline(url: "https://api.twitter.com/1.1/statuses/home_timeline.json", completion: completion)
+        } else {
+            self.logIn(completion: { (account) in
+                if let account = account {
+                    API.share.account = account
+                    self.updateTimeline(url: "https://api.twitter.com/1.1/statuses/home_timeline.json", completion: completion)
+                } else { print("Account is nil") }
+            })
         }
     }
     
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
