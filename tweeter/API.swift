@@ -37,13 +37,16 @@ class API {
                 if let account = accountStore.accounts(with: accountType).first as? ACAccount {
                     
                     completion(account)
-                    return 
+                    return
                 }
             } else {
                 print("UNSUCESSFUL: No Twitter account found on device.")
                 completion(nil)
+                return
             }
-            
+            print("ERROR: This app requires access to a twitter account.")
+            completion(nil)
+            return
         }
         
     }
