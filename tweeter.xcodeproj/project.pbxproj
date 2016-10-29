@@ -12,6 +12,10 @@
 		30E68F631DB545060092D31F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30E68F611DB545060092D31F /* Main.storyboard */; };
 		30E68F651DB545060092D31F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30E68F641DB545060092D31F /* Assets.xcassets */; };
 		30E68F681DB545060092D31F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30E68F661DB545060092D31F /* LaunchScreen.storyboard */; };
+		30E68F701DB5451F0092D31F /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E68F6F1DB5451F0092D31F /* Tweet.swift */; };
+		30E68F721DB545680092D31F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E68F711DB545680092D31F /* User.swift */; };
+		30E68F771DB69E460092D31F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E68F761DB69E460092D31F /* API.swift */; };
+		30E68F791DB6B09D0092D31F /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E68F781DB6B09D0092D31F /* JSONParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		30E68F641DB545060092D31F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30E68F671DB545060092D31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30E68F691DB545060092D31F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30E68F6F1DB5451F0092D31F /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		30E68F711DB545680092D31F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		30E68F761DB69E460092D31F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		30E68F781DB6B09D0092D31F /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,10 @@
 				30E68F641DB545060092D31F /* Assets.xcassets */,
 				30E68F661DB545060092D31F /* LaunchScreen.storyboard */,
 				30E68F691DB545060092D31F /* Info.plist */,
+				30E68F6F1DB5451F0092D31F /* Tweet.swift */,
+				30E68F711DB545680092D31F /* User.swift */,
+				30E68F761DB69E460092D31F /* API.swift */,
+				30E68F781DB6B09D0092D31F /* JSONParser.swift */,
 			);
 			path = tweeter;
 			sourceTree = "<group>";
@@ -137,8 +149,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30E68F721DB545680092D31F /* User.swift in Sources */,
+				30E68F701DB5451F0092D31F /* Tweet.swift in Sources */,
+				30E68F791DB6B09D0092D31F /* JSONParser.swift in Sources */,
 				30E68F601DB545060092D31F /* ViewController.swift in Sources */,
 				30E68F5E1DB545060092D31F /* AppDelegate.swift in Sources */,
+				30E68F771DB69E460092D31F /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
