@@ -13,7 +13,7 @@ import Social
 typealias accountCompletion = (ACAccount?) -> ()
 typealias userCompletion = (User?) -> ()
 typealias tweetsCompletion = ([Tweet]?) -> ()
-typealias imageCompletion = ([UIImage?]) -> ()
+typealias imageCompletion = (UIImage?) -> ()
 
 class API {
     
@@ -160,6 +160,17 @@ class API {
             do {
                 let data = try Data(contentsOf: url)
                 guard let image = UIImage(data: data) else {return}
+                
+                //return on the main thread.
+                OperationQueue.main.addOperation {
+                    completion(image)
+                }
+            } catch {
+                print("There was an error getting the Data from the URL for UIImage")
+                print(error)
+                OperationQueue.main.addOperation {
+                    completion(nil)
+                }
             }
         }
     }
