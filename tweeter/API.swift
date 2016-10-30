@@ -95,9 +95,7 @@ class API {
     }
     
     private func updateTimeline(url : String, completion: @escaping tweetsCompletion) {
-        
-//        let url = URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")
-        
+                
         if let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, url: URL(string: url), parameters: nil) {
             
             request.account = self.account

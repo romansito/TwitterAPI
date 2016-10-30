@@ -8,14 +8,15 @@
 
 import Foundation
 
-typealias JSONParserCompletion = (_ success: Bool, _ results: [Tweet]?) -> ()
+typealias JSONParserCompletion = (Bool, [Tweet]?) -> ()
 
 class JSONParser {
     static var sampleJSONData: Data { //computed property
         guard let tweetJSONPath = Bundle.main.url(forResource: "Tweet", withExtension: ".json") else {
             fatalError("There was an error accessing Tweet.json") }
         do {
-            return try Data(contentsOf: tweetJSONPath)
+            let tweetJSONData = try Data(contentsOf: tweetJSONPath)
+            return tweetJSONData
             
         } catch {
             fatalError("Failed to convert Tweet.json to data!")

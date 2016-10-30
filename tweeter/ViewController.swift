@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    //outlets
     @IBOutlet weak var tableView: UITableView!
     
     var allTweets = [Tweet]() {
@@ -20,9 +19,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //set up delegate and dataSoure
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+//        self.tableView.delegate = self
+//        self.tableView.dataSource = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,23 +46,19 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 }
 
 
-// Best practice is to write your dataSource as an extension
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    //implement required methods
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allTweets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as UITableViewCell
+        
         let currentTweet = self.allTweets[indexPath.row]
         cell.textLabel?.text = currentTweet.text
         cell.detailTextLabel?.text = currentTweet.user?.name // need to show the userName instead of id
