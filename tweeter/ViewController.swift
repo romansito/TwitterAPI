@@ -20,7 +20,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
-        self.tableView.dataSource = self
+        tableViewSetup()
+//        self.tableView.dataSource = self
+    }
+    
+    func tableViewSetup() {
+        self.tableView.estimatedRowHeight = 50
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        self.tableView.register(UINib(nibName: "TweetCell", bundle: nil), forCellReuseIdentifier: TweetCell.identifier())
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,7 +65,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TweetCell.identifier(), for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TweetCell.identifier(), for: indexPath) as! TweetCell
         
         let currentTweet = self.allTweets[indexPath.row]
         cell.textLabel?.text = currentTweet.text
