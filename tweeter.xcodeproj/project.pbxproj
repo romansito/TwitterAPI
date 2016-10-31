@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		301C2A3F1DC65E9A0092A050 /* Tweet.json in Resources */ = {isa = PBXBuildFile; fileRef = 301C2A3E1DC65E9A0092A050 /* Tweet.json */; };
+		301C2A421DC7A7050092A050 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301C2A401DC7A7050092A050 /* TweetCell.swift */; };
+		301C2A431DC7A7050092A050 /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301C2A411DC7A7050092A050 /* TweetCell.xib */; };
 		30E68F5E1DB545060092D31F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E68F5D1DB545060092D31F /* AppDelegate.swift */; };
 		30E68F601DB545060092D31F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E68F5F1DB545060092D31F /* ViewController.swift */; };
 		30E68F631DB545060092D31F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30E68F611DB545060092D31F /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		301C2A3E1DC65E9A0092A050 /* Tweet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tweet.json; sourceTree = "<group>"; };
+		301C2A401DC7A7050092A050 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		301C2A411DC7A7050092A050 /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCell.xib; sourceTree = "<group>"; };
 		30E68F5A1DB545060092D31F /* tweeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tweeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30E68F5D1DB545060092D31F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30E68F5F1DB545060092D31F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 				30E68F761DB69E460092D31F /* API.swift */,
 				30E68F781DB6B09D0092D31F /* JSONParser.swift */,
 				301C2A3E1DC65E9A0092A050 /* Tweet.json */,
+				301C2A401DC7A7050092A050 /* TweetCell.swift */,
+				301C2A411DC7A7050092A050 /* TweetCell.xib */,
 			);
 			path = tweeter;
 			sourceTree = "<group>";
@@ -140,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30E68F681DB545060092D31F /* LaunchScreen.storyboard in Resources */,
+				301C2A431DC7A7050092A050 /* TweetCell.xib in Resources */,
 				30E68F651DB545060092D31F /* Assets.xcassets in Resources */,
 				30E68F631DB545060092D31F /* Main.storyboard in Resources */,
 				301C2A3F1DC65E9A0092A050 /* Tweet.json in Resources */,
@@ -154,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30E68F721DB545680092D31F /* User.swift in Sources */,
+				301C2A421DC7A7050092A050 /* TweetCell.swift in Sources */,
 				30E68F701DB5451F0092D31F /* Tweet.swift in Sources */,
 				30E68F791DB6B09D0092D31F /* JSONParser.swift in Sources */,
 				30E68F601DB545060092D31F /* ViewController.swift in Sources */,
