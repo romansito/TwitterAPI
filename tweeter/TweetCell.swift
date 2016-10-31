@@ -21,49 +21,32 @@ class TweetCell: UITableViewCell {
             // Kick off the image download if the user is present.
             if let user = self.tweet.user {
                 self.userName.text = user.name
-                
+                if let image = SimpleCache.share.image(key: user.profileImageUrlString) {
+                    userImageView.image = image
+                    return
+                }
+                API.share.getImage(urlString: user.profileImageUrlString, completion: { (image) -> () in
+                    if let image = image {
+                        SimpleCache.share.setImage(image: image, key: user.profileImageUrlString)
+                        self.userImageView.image = image
+                    }
+                })
             }
         }
     }
-    
-//    var tweet: Tweet! {
-//        didSet {
-//            // Set the text right away.
-//            self.tweetLabel.text = tweet.text
-//            // Kick off the image download if the user is present.
-//            if let user = self.tweet.user {
-//                self.usernameLabel.text = user.name
-//                if let image = SimpleCache.shared.image(key: user.profileImageURL) {
-//                    userImageView.image = image
-//                    return
-//                }
-//                API.shared.GETImage(urlString: user.profileImageURL, completion: { (image) -> () in
-//                    if let image = image {
-//                        SimpleCache.shared.setImage(image: image, key: user.profileImageURL)
-//                        self.userImageView.image = image
-//                    }
-//                })
-//            }
-//        }
-//    }
-//    override func awakeFromNib()
-//    {
-//        super.awakeFromNib()
-//        self.setupTweetCell()
-//    }
-//    
-//    func setupTweetCell()
-//    {
-//        self.userImageView.clipsToBounds = true
-//        self.userImageView.layer.cornerRadius = 15.0
-//        self.preservesSuperviewLayoutMargins = false
-//        self.separatorInset = UIEdgeInsetsMake(0.0, 10.0, 0.0, 10.0)
-//        self.layoutMargins = UIEdgeInsets.zero
-//    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.setupTweetCell()
+    }
+    
+    func setupTweetCell() {
+        self.userImageView.clipsToBounds = true
+        self.userImageView.layer.cornerRadius = self.userImageView.frame.width / 2
+        self.preservesSuperviewLayoutMargins = false
+        self.separatorInset = UIEdgeInsetsMake(0.0, 10.0, 0.0, 10.0)
+        self.layoutMargins = UIEdgeInsets.zero
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

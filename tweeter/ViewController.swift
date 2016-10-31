@@ -57,7 +57,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TweetCell.identifier(), for: indexPath) as UITableViewCell
         
         let currentTweet = self.allTweets[indexPath.row]
         cell.textLabel?.text = currentTweet.text
