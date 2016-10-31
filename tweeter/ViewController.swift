@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.tableView.delegate = self
         tableViewSetup()
-//        self.tableView.dataSource = self
+        self.tableView.dataSource = self
     }
     
     func tableViewSetup() {
@@ -67,13 +67,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TweetCell.identifier(), for: indexPath) as! TweetCell
         
-        let currentTweet = self.allTweets[indexPath.row]
-        cell.textLabel?.text = currentTweet.text
-        cell.detailTextLabel?.text = currentTweet.user?.name // need to show the userName instead of id
+        let tweet = self.allTweets[indexPath.row]
+     
+        cell.tweet = tweet
+        print("after this my tweet should appear")
+        print(tweet)
+        
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-    }
+
 }

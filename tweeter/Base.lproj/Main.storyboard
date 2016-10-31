@@ -26,7 +26,7 @@
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tkt-Ys-FfB" secondAttribute="bottom" constant="44" id="2ZV-1e-Mtq"/>
                             <constraint firstAttribute="trailing" secondItem="tkt-Ys-FfB" secondAttribute="trailing" id="SNR-PO-Uey"/>
-                            <constraint firstItem="tkt-Ys-FfB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="116" id="sfi-QX-BRI"/>
+                            <constraint firstItem="tkt-Ys-FfB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="sfi-QX-BRI"/>
                             <constraint firstItem="tkt-Ys-FfB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="x19-UA-1PB"/>
                         </constraints>
                     </view>

@@ -53,6 +53,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		303342321DC8002C00ACC1CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				301C2A3E1DC65E9A0092A050 /* Tweet.json */,
+				301C2A401DC7A7050092A050 /* TweetCell.swift */,
+				30E68F6F1DB5451F0092D31F /* Tweet.swift */,
+				30E68F711DB545680092D31F /* User.swift */,
+				30E68F761DB69E460092D31F /* API.swift */,
+				30E68F781DB6B09D0092D31F /* JSONParser.swift */,
+				301C2A641DC7ADBB0092A050 /* SimpleCache.swift */,
+				301C2A6A1DC7D11B0092A050 /* UIExtension.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		303342331DC8003400ACC1CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30E68F611DB545060092D31F /* Main.storyboard */,
+				30E68F661DB545060092D31F /* LaunchScreen.storyboard */,
+				301C2A411DC7A7050092A050 /* TweetCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		303342341DC8004000ACC1CB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				30E68F5F1DB545060092D31F /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		303342351DC8004700ACC1CB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				30E68F691DB545060092D31F /* Info.plist */,
+				30E68F5D1DB545060092D31F /* AppDelegate.swift */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		303342361DC8010800ACC1CB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				30E68F641DB545060092D31F /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		30E68F511DB545060092D31F = {
 			isa = PBXGroup;
 			children = (
@@ -72,21 +122,11 @@
 		30E68F5C1DB545060092D31F /* tweeter */ = {
 			isa = PBXGroup;
 			children = (
-				30E68F5D1DB545060092D31F /* AppDelegate.swift */,
-				30E68F5F1DB545060092D31F /* ViewController.swift */,
-				30E68F611DB545060092D31F /* Main.storyboard */,
-				30E68F641DB545060092D31F /* Assets.xcassets */,
-				30E68F661DB545060092D31F /* LaunchScreen.storyboard */,
-				30E68F691DB545060092D31F /* Info.plist */,
-				30E68F6F1DB5451F0092D31F /* Tweet.swift */,
-				30E68F711DB545680092D31F /* User.swift */,
-				30E68F761DB69E460092D31F /* API.swift */,
-				30E68F781DB6B09D0092D31F /* JSONParser.swift */,
-				301C2A3E1DC65E9A0092A050 /* Tweet.json */,
-				301C2A401DC7A7050092A050 /* TweetCell.swift */,
-				301C2A411DC7A7050092A050 /* TweetCell.xib */,
-				301C2A641DC7ADBB0092A050 /* SimpleCache.swift */,
-				301C2A6A1DC7D11B0092A050 /* UIExtension.swift */,
+				303342351DC8004700ACC1CB /* App */,
+				303342341DC8004000ACC1CB /* Controller */,
+				303342321DC8002C00ACC1CB /* Model */,
+				303342361DC8010800ACC1CB /* Resources */,
+				303342331DC8003400ACC1CB /* View */,
 			);
 			path = tweeter;
 			sourceTree = "<group>";
