@@ -21,16 +21,22 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var followingNumberLabel: UILabel!
     
     var user : User?
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         API.share.getUserAccount { (user) in
             self.user = user
             
             OperationQueue.main.addOperation {
                 self.userNameLabel.text = self.user?.name
                 
-                self.numberOfFollowersLabel.text = "# of Followers: \(self.user?.followersCount)"
+                self.numberOfFollowersLabel.text =  "\(self.user?.followersCount)"
                 self.followingNumberLabel.text = "# of Friends: " + String(describing: self.user?.friendsCount)
                 
             }
@@ -56,15 +62,11 @@ class ProfileViewController: UIViewController {
     }
     
     func configureBlurImage() {
-//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
-//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = view.bounds
-//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
-//        view.addSubview(blurEffectView)
         
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.prominent)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
+        blurEffectView.alpha = 0.3
         blurEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth] // for supporting device rotation
         view.addSubview(blurEffectView)
         
