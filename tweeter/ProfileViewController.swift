@@ -10,26 +10,66 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
+    @IBOutlet weak var profileImageview: UIImageView!
+    
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    @IBOutlet weak var numberOfFollowersLabel: UILabel!
+    
+    @IBOutlet weak var followingNumberLabel: UILabel!
+    
+    var user : User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        API.share.getUserAccount { (user) in
+            self.user = user
+            
+            OperationQueue.main.addOperation {
+                self.userNameLabel.text = self.user?.name
+                
+                self.numberOfFollowersLabel.text = "# of Followers: \(self.user?.followersCount)"
+                self.followingNumberLabel.text = "# of Friends: " + String(describing: self.user?.friendsCount)
+                
+            }
+            
+        }
+        
+        configureBlurImage()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func profileImage(key: String, completion: @escaping (UIImage?) -> ())
+    {
+        if let image = SimpleCache.share.image(key: key) {
+            completion(image)
+            return
+        }
+        
+        API.share.getImage(urlString: key) { (image) -> () in
+            if let image = image {
+                completion(image)
+            }
+        }
+    }
+    
+    func configureBlurImage() {
+//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = view.bounds
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
+//        view.addSubview(blurEffectView)
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth] // for supporting device rotation
+        view.addSubview(blurEffectView)
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

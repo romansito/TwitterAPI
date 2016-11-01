@@ -174,6 +174,15 @@ class API {
             }
         }
     }
+    
+    func getUserAccount(completion: @escaping userCompletion) {
+        if self.account != nil {
+            self.getOAuthUser(completion: completion)
+        }
+        completion(nil)
+        // add something here in case there is no user account
+    }
+    
 }
 
 

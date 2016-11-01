@@ -44,6 +44,8 @@ class TweetCell: UITableViewCell {
     func setupTweetCell() {
         self.userImageView.clipsToBounds = true
         self.userImageView.layer.cornerRadius = 25
+        self.userImageView.layer.borderWidth = 2.5
+        self.userImageView.layer.borderColor = UIColor.red.cgColor
 //        self.preservesSuperviewLayoutMargins = false
         
 //        self.separatorInset = UIEdgeInsetsMake(0.0, 10.0, 0.0, 10.0)
