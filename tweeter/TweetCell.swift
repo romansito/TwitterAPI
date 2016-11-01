@@ -17,6 +17,7 @@ class TweetCell: UITableViewCell {
     var tweet: Tweet! {
         didSet {
             // Set the text right away. 
+            self.userImageView.backgroundColor = .blue
             self.tweetText.text = tweet.text
             // Kick off the image download if the user is present.
             if let user = self.tweet.user {
@@ -42,10 +43,11 @@ class TweetCell: UITableViewCell {
     
     func setupTweetCell() {
         self.userImageView.clipsToBounds = true
-        self.userImageView.layer.cornerRadius = self.userImageView.frame.width / 2
-        self.preservesSuperviewLayoutMargins = false
-        self.separatorInset = UIEdgeInsetsMake(0.0, 10.0, 0.0, 10.0)
-        self.layoutMargins = UIEdgeInsets.zero
+        self.userImageView.layer.cornerRadius = 25
+//        self.preservesSuperviewLayoutMargins = false
+        
+//        self.separatorInset = UIEdgeInsetsMake(0.0, 10.0, 0.0, 10.0)
+//        self.layoutMargins = UIEdgeInsets.zero
         
     }
 

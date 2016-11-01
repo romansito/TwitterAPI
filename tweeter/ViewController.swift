@@ -19,12 +19,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.delegate = self
+        self.title = "HOME"
         tableViewSetup()
-        self.tableView.dataSource = self
     }
     
     func tableViewSetup() {
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+
         self.tableView.estimatedRowHeight = 50
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -36,13 +38,13 @@ class ViewController: UIViewController {
         
         update()
         
-        JSONParser.tweetsFrom(data: JSONParser.sampleJSONData) { (success, results) in
-            if success {
-                if let tweets = results {
-                    self.allTweets = tweets
-                }
-            }
-        }
+//        JSONParser.tweetsFrom(data: JSONParser.sampleJSONData) { (success, results) in
+//            if success {
+//                if let tweets = results {
+//                    self.allTweets = tweets
+//                }
+//            }
+//        }
     }
     
     func update() {

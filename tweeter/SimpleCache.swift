@@ -12,7 +12,7 @@ class SimpleCache {
     static let share = SimpleCache()
     
     private var cache = [String : UIImage]()
-    private let capacity = 100 // Keep 100 recent images.
+    private let capacity = 20 // Keep 100 recent images.
     
     func image(key: String) -> UIImage? {
         return self.cache[key]

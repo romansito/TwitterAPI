@@ -154,16 +154,18 @@ class API {
         
         OperationQueue().addOperation {
             guard let url = URL(string: urlString) else {return}
-            
+            print("Image URL: \(url)")
             do {
                 let data = try Data(contentsOf: url)
+                print("Image DATA: \(data)")
+
                 guard let image = UIImage(data: data) else {return}
                 
                 //return on the main thread.
                 OperationQueue.main.addOperation {
                     completion(image)
                 }
-            } catch {
+            } catch let error {
                 print("There was an error getting the Data from the URL for UIImage")
                 print(error)
                 OperationQueue.main.addOperation {
