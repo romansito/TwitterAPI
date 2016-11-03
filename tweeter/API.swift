@@ -151,6 +151,9 @@ class API {
     }
     
     func getImage(urlString: String, completion: @escaping imageCompletion) {
+//        self.getImage(urlString: "") { (<#UIImage?#>) in
+//            <#code#>
+//        }
         
         OperationQueue().addOperation {
             guard let url = URL(string: urlString) else {return}

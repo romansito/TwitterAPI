@@ -16,15 +16,17 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var numberOfFollowersLabel: UILabel!
     @IBOutlet weak var followingNumberLabel: UILabel!
     
-    var user : User? {
-        didSet {
-            if let myUser = user {
-                profileImage(key: myUser.profileImageUrlString, completion: { (image) in
-                    self.profileImageview.image = image
-                })
-            }
-        }
-    }
+    var user : User?
+//        didSet {
+//            OperationQueue.main.addOperation {
+//                if let myUser = self.user {
+//                    self.profileImage(key: myUser.profileImageUrlString, completion: { (image) in
+//                        self.profileImageview.image = image
+//                    })
+//                }
+//            }
+//        }
+    
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -38,6 +40,14 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         self.title = "PROFILE"
 
+        
+        
+        self.profileImageview.layer.cornerRadius = 50
+        self.profileImageview.clipsToBounds = true
+        self.profileImageview.layer.borderWidth = 2
+        self.profileImageview.layer.borderColor = UIColor.white.cgColor
+        
+        
         API.share.getUserAccount { (user) in
             self.user = user
             
@@ -53,9 +63,14 @@ class ProfileViewController: UIViewController {
                     self.followingNumberLabel.text = "\(followingNumbers)"
                 }
                 
+                if let myUser = self.user {
+                    self.profileImage(key: "https://pbs.twimg.com/profile_images/586315935612436480/MBAkKJ9m.jpg", completion: { (image) in
+                        self.profileImageview.image = image
+                        print("This is my image: \(myUser.profileImageUrlString)")
+                    })
+                }
             }
         }
-
     }
     
     
