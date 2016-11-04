@@ -17,37 +17,21 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var followingNumberLabel: UILabel!
     
     var user : User?
-//        didSet {
-//            OperationQueue.main.addOperation {
-//                if let myUser = self.user {
-//                    self.profileImage(key: myUser.profileImageUrlString, completion: { (image) in
-//                        self.profileImageview.image = image
-//                    })
-//                }
-//            }
-//        }
-    
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .lightContent
-       
-
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "PROFILE"
-
-        
         
         self.profileImageview.layer.cornerRadius = 50
         self.profileImageview.clipsToBounds = true
         self.profileImageview.layer.borderWidth = 2
         self.profileImageview.layer.borderColor = UIColor.white.cgColor
-        
-        
+
         API.share.getUserAccount { (user) in
             self.user = user
             
@@ -72,10 +56,7 @@ class ProfileViewController: UIViewController {
             }
         }
     }
-    
-    
-    
-    
+
     func profileImage(key: String, completion: @escaping (UIImage?) -> ()) {
         if let image = SimpleCache.share.image(key: key) {
             completion(image)

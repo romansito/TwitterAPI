@@ -17,6 +17,11 @@ class ViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .default
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "HOME"
@@ -37,14 +42,6 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         
         update()
-        
-//        JSONParser.tweetsFrom(data: JSONParser.sampleJSONData) { (success, results) in
-//            if success {
-//                if let tweets = results {
-//                    self.allTweets = tweets
-//                }
-//            }
-//        }
     }
     
     func update() {

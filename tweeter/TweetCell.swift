@@ -16,6 +16,12 @@ class TweetCell: UITableViewCell {
     
     var tweet: Tweet! {
         didSet {
+            
+//            let string = tweet.user?.profileImageURL
+//            let removedString = string?.index(string?.endIndex, offsetBy: -7)
+//            let newString =
+            
+            
             // Set the text right away. 
             self.userImageView.backgroundColor = .blue
             self.tweetText.text = tweet.text

@@ -107,7 +107,8 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="zaj-49-c5x">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="zaj-49-c5x">
+                                <frame key="frameInset" minX="122" minY="308" width="132" height="21"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="rwi-Iz-Ymb">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -129,7 +130,7 @@
                             <constraint firstItem="QgO-ix-0R1" firstAttribute="leading" secondItem="bvW-zj-8vS" secondAttribute="leadingMargin" constant="-16" id="9MA-7Z-Kqi"/>
                             <constraint firstItem="Qzu-vK-Dli" firstAttribute="top" secondItem="U2x-2P-wAV" secondAttribute="bottom" id="A4g-v9-yHR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QgO-ix-0R1" secondAttribute="trailing" constant="-16" id="DLx-Wl-kov"/>
-                            <constraint firstItem="zaj-49-c5x" firstAttribute="centerY" secondItem="bvW-zj-8vS" secondAttribute="centerY" constant="186" id="G1w-OF-K4Q"/>
+                            <constraint firstItem="zaj-49-c5x" firstAttribute="centerY" secondItem="bvW-zj-8vS" secondAttribute="centerY" constant="-15" id="G1w-OF-K4Q"/>
                             <constraint firstItem="U2x-2P-wAV" firstAttribute="leading" secondItem="bvW-zj-8vS" secondAttribute="leading" id="JeG-b3-nKU"/>
                             <constraint firstItem="77e-lP-ti4" firstAttribute="centerX" secondItem="bvW-zj-8vS" secondAttribute="centerX" id="Mes-LY-NEg"/>
                             <constraint firstItem="U2x-2P-wAV" firstAttribute="top" secondItem="bvW-zj-8vS" secondAttribute="top" id="cKv-1g-xwh"/>
@@ -137,7 +138,7 @@
                             <constraint firstItem="zaj-49-c5x" firstAttribute="centerX" secondItem="bvW-zj-8vS" secondAttribute="centerX" id="oCl-Or-OBM"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="EZE-a4-Wh9"/>
+                    <tabBarItem key="tabBarItem" title="PROFILE" id="EZE-a4-Wh9"/>
                     <connections>
                         <outlet property="backgroundImage" destination="U2x-2P-wAV" id="k3l-2l-XHJ"/>
                         <outlet property="followingNumberLabel" destination="rwi-Iz-Ymb" id="WgQ-8j-Adv"/>
